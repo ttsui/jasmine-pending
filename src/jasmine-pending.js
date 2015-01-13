@@ -1,5 +1,5 @@
-function pending_it(description, fn) {
-  var spec = it('PENDING: ' + description, fn);
+function pending_it(description, func) {
+  var spec = it('PENDING: ' + description, func);
 
   spec.addExpectationResult = function (passed, result) {
     if (passed) {
