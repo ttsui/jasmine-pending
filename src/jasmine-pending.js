@@ -3,7 +3,8 @@ function pending_it(description, func) {
 
   spec.addExpectationResult = function (passed, result) {
     if (passed) {
-      result.message = 'Unexpected success';
+      result.message = 'Unexpected success. Did not expect ' +
+                       result.actual + ' ' + result.matcherName + ' ' + result.expected;
       result.passed = false;
       return spec.__proto__.addExpectationResult.call(this, false, result);
     }
